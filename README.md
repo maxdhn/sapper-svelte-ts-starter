@@ -1,5 +1,18 @@
 # sapper-template
 
+## TODO
+
+- Prettier
+- Linter
+- Husky
+- Make as usable template with npx
+- Update README
+- Add more example (store, etc)
+- External links
+- Thanks to...
+- VSCode setup
+- Try to fix rollup-alias-plugin with Svelte and Typescript
+
 ## Install
 
 ### For Linux users
@@ -101,15 +114,3 @@ npm install -D @sveltejs/svelte-virtual-list
 ## Bugs and feedback
 
 Sapper is in early development, and may have the odd rough edge here and there. Please be vocal over on the [Sapper issue tracker](https://github.com/sveltejs/sapper/issues).
-
-## TODO
-
-- Prettier
-- Linter
-- Husky
-- Make as usable template with npx
-- Update README
-- Add more example (store, etc)
-- External links
-- Thanks to...
-- VSCode setup
