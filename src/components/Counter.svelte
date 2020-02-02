@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="typescript">
   export let value: number = 0;
   export let step: number = 1;
 </script>

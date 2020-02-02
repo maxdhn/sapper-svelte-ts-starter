@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="typescript">
     import { createEventDispatcher } from 'svelte';
     import { DateUtils } from '../utils/date';
 

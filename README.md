@@ -3,6 +3,7 @@
 ## TODO
 
 - Prettier
+- File generator with yarn
 - Linter
 - Husky
 - Make as usable template with npx
@@ -13,6 +14,9 @@
 - VSCode setup
 - Try to fix rollup-alias-plugin with Svelte and Typescript
 
+## Extension
+- ext install JamesBirtles.svelte-vscode
+- ext install ardenivanov.svelte-intellisense
 ## Install
 
 ### For Linux users
