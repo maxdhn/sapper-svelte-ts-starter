@@ -10,24 +10,20 @@ import config from 'sapper/config/rollup.js';
 
 import pkg from './package.json';
 
-const svelteOptions = require("./svelte.config");
+const svelteOptions = require('./svelte.config');
 const purgecss = require('@fullhuman/postcss-purgecss');
 
 const production = process.env.NODE_ENV === 'production' ? true : false;
 
 const mode = process.env.NODE_ENV;
-const dev = mode === "development";
+const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 const onwarn = (warning, onwarn) =>
-    (warning.code === "CIRCULAR_DEPENDENCY" &&
-        /[/\\]@sapper[/\\]/.test(warning.message)) ||
+    (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
     onwarn(warning);
 
-const plugins = [
-    require('postcss-import')(),
-    require('tailwindcss')('tailwind.js'),
-]
+const plugins = [require('postcss-import')(), require('tailwindcss')('tailwind.js')];
 
 if (production) {
     plugins.push(
@@ -55,10 +51,8 @@ if (production) {
                 return matchedTokens;
             },
         }),
-    )
-    plugins.push(
-        require("cssnano")()
-    )
+    );
+    plugins.push(require('cssnano')());
 }
 export default {
     client: {
@@ -69,88 +63,100 @@ export default {
             // format: "iife",
         },
         plugins: [
-            // alias({
-            //     entries: [
-            //         { find: 'sng-app', replacement: './src/components' },
-            //         // { find: '.', replacement: '.' },
-            //     ]
-            // }),
+            alias({
+                entries: [
+                    { find: 'components', replacement: './src/components' },
+                    { find: 'http', replacement: './src/http' },
+                    { find: 'stores', replacement: './src/stores' },
+                    // { find: 'utils', replacement: './src/utils' },
+                ]
+            }),
             replace({
-                "process.browser": true,
-                "process.env.NODE_ENV": JSON.stringify(mode)
+                'process.browser': true,
+                'process.env.NODE_ENV': JSON.stringify(mode),
             }),
             svelte({
                 dev,
                 ...svelteOptions,
                 hydratable: true,
                 emitCss: true,
+                onwarn: function(err, handler) {
+                    // return;
+                    // console.log('warn', err);
+                    // handler(err )
+                    throw err;
+                }
             }),
             resolve({
-                browser: true
+                browser: true,
             }),
             commonjs(),
-            typescript(),
-            legacy &&
-            babel({
-                extensions: [".js", ".mjs", ".html", ".svelte"],
-                runtimeHelpers: true,
-                exclude: ["node_modules/@babel/**"],
-                presets: [
-                    [
-                        "@babel/preset-env",
-                        {
-                            targets: "> 0.25%, not dead"
-                        }
-                    ]
-                ],
-                plugins: [
-                    "@babel/plugin-syntax-dynamic-import",
-                    [
-                        "@babel/plugin-transform-runtime",
-                        {
-                            useESModules: true
-                        }
-                    ]
-                ]
+            typescript({
+                abortOnError: true,
             }),
+            legacy &&
+                babel({
+                    extensions: ['.js', '.mjs', '.html', '.svelte'],
+                    runtimeHelpers: true,
+                    exclude: ['node_modules/@babel/**'],
+                    presets: [
+                        [
+                            '@babel/preset-env',
+                            {
+                                targets: '> 0.25%, not dead',
+                            },
+                        ],
+                    ],
+                    plugins: [
+                        '@babel/plugin-syntax-dynamic-import',
+                        [
+                            '@babel/plugin-transform-runtime',
+                            {
+                                useESModules: true,
+                            },
+                        ],
+                    ],
+                }),
 
             !dev &&
-            terser({
-                module: true
-            })
+                terser({
+                    module: true,
+                }),
         ],
 
-        onwarn
+        onwarn,
     },
 
     server: {
         input: config.server.input(),
         output: config.server.output(),
         plugins: [
-            // alias({
-            //     entries: [
-            //         { find: 'sng-app', replacement: './src/components' },
-            //     ]
-            // }),
+            alias({
+                entries: [
+                    { find: 'components', replacement: './src/components' },
+                    { find: 'http', replacement: './src/http' },
+                    { find: 'stores', replacement: './src/stores' },
+                    // { find: 'utils', replacement: './src/utils' },
+                ]
+            }),
             replace({
-                "process.browser": false,
-                "process.env.NODE_ENV": JSON.stringify(mode)
+                'process.browser': false,
+                'process.env.NODE_ENV': JSON.stringify(mode),
             }),
             svelte({
                 ...svelteOptions,
-                generate: "ssr",
+                generate: 'ssr',
                 dev,
             }),
             resolve(),
             commonjs(),
-            typescript()
+            typescript(),
         ],
         external: Object.keys(pkg.dependencies).concat(
-            require("module").builtinModules ||
-            Object.keys(process.binding("natives"))
+            require('module').builtinModules || Object.keys(process.binding('natives')),
         ),
 
-        onwarn
+        onwarn,
     },
 
     serviceworker: {
@@ -159,13 +165,13 @@ export default {
         plugins: [
             resolve(),
             replace({
-                "process.browser": true,
-                "process.env.NODE_ENV": JSON.stringify(mode)
+                'process.browser': true,
+                'process.env.NODE_ENV': JSON.stringify(mode),
             }),
             commonjs(),
-            !dev && terser()
+            !dev && terser(),
         ],
 
-        onwarn
-    }
+        onwarn,
+    },
 };

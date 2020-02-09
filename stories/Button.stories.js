@@ -17,4 +17,4 @@ storiesOf('Buttons | Buttons', module)
             },
         }),
         // { notes: { markdown: markdownNotes } },
-    )
+    );

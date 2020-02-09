@@ -4,8 +4,7 @@ const path = require('path');
 
 module.exports = ({ config, mode }) => {
     let mergedConfig = merge.smart(config, {
-        module:
-        {
+        module: {
             rules: [
                 {
                     test: /\.(ts|tsx)$/,
@@ -30,8 +29,8 @@ module.exports = ({ config, mode }) => {
                             // scssAliases(aliases),
                             // ],
                             // }
-                        })
-                    }
+                        }),
+                    },
                 },
                 {
                     test: /\.stories\.js?$/,
@@ -39,7 +38,7 @@ module.exports = ({ config, mode }) => {
                     include: [path.resolve(__dirname, '../stories')],
                     enforce: 'pre',
                 },
-            ]
+            ],
         },
     });
     mergedConfig.resolve.alias = {

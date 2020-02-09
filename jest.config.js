@@ -1,21 +1,22 @@
-const svelteConfig = require('./svelte.config')
+const svelteConfig = require('./svelte.config');
 
 module.exports = {
     testPathIgnorePatterns: ['/node_modules/', '/cypress/'],
     setupFilesAfterEnv: ['<rootDir>/jest.setup.js', '@testing-library/jest-dom/extend-expect'],
     transform: {
         '^.+\\.tsx?$': 'ts-jest',
-        "^.+\\.js$": "babel-jest",
-        "^.+\\.svelte$": ["svelte-jester", { "preprocess": true }]
+        '^.+\\.js$': 'babel-jest',
+        '^.+\\.svelte$': ['svelte-jester', { preprocess: true }],
     },
     collectCoverageFrom: [
-        "!./src/client.js", 
-        "!./src/server.js", 
-        "!./src/service-worker.js", 
-        "./src/**/*.svelte", 
-        "./src/**/*.svelte", 
-        "./src/**/*.ts", 
-        "./src/**/*.js"],
+        '!./src/client.js',
+        '!./src/server.js',
+        '!./src/service-worker.js',
+        './src/**/*.svelte',
+        './src/**/*.svelte',
+        './src/**/*.ts',
+        './src/**/*.js',
+    ],
     //   globals: {
     //     svelte: {
     //       preprocess: svelteConfig.preprocess,
@@ -25,4 +26,4 @@ module.exports = {
     //     },
     //   },
     moduleFileExtensions: ['ts', 'js', 'svelte'],
-}
+};
