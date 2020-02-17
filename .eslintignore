@@ -1,0 +1,10 @@
+__sapper__/*
+.rpt2_cache
+coverage
+cypress
+storybook-static
+node_modules
+svelte.config.js
+jest.config.js
+postcss.config.js
+rollup.config.js

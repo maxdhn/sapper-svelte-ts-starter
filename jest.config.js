@@ -1,6 +1,9 @@
 const svelteConfig = require('./svelte.config');
 
 module.exports = {
+    moduleNameMapper: {
+        '^utils(.*)$': '<rootDir>/src/utils$1',
+    },
     testPathIgnorePatterns: ['/node_modules/', '/cypress/'],
     setupFilesAfterEnv: ['<rootDir>/jest.setup.js', '@testing-library/jest-dom/extend-expect'],
     transform: {
