@@ -4,3 +4,4 @@ coverage
 storybook-static
 node_modules
 static/global.css
+_template

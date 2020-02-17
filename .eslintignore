@@ -8,3 +8,6 @@ svelte.config.js
 jest.config.js
 postcss.config.js
 rollup.config.js
+_template/*
+tailwind.js
+src/service-worker.js

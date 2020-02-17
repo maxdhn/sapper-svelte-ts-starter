@@ -1,4 +1,3 @@
-const svelteOptions = require('./svelte.config');
 module.exports = {
     parserOptions: {
         ecmaVersion: 2019,
@@ -18,7 +17,7 @@ module.exports = {
         'prettier',
         'prettier/@typescript-eslint',
     ],
-    plugins: ['html','@typescript-eslint'],
+    plugins: ['html', '@typescript-eslint'],
     rules: {
         'no-unused-vars': [
             'error',

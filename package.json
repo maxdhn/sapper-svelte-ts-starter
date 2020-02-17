@@ -15,7 +15,6 @@
         "lint": "npm-run-all -c lint:*",
         "lint:eslint": "eslint '**/*.{js,ts,html}'",
         "lint:prettier": "prettier --check '**/*.{js,ts,svelte,html,json,md,css}'",
-        "lint:types": "tsc",
         "dev": "sapper dev",
         "dev:all": "run-p --race watch:tailwind dev",
         "build": "sapper build --legacy",
