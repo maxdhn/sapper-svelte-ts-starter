@@ -3,6 +3,9 @@ const { CheckerPlugin } = require('awesome-typescript-loader');
 const path = require('path');
 
 module.exports = ({ config, mode }) => {
+    
+    config.resolve.alias['utils'] = path.resolve(__dirname, '../src/utils')
+
     let mergedConfig = merge.smart(config, {
         module: {
             rules: [

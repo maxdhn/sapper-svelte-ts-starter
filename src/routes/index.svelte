@@ -1,4 +1,4 @@
-<style>
+<style type="text/css">
     h1,
     figure,
     p {
@@ -37,8 +37,8 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { writable } from 'svelte/store';
-    import Button from '../components/Button.svelte';
-    import Counter from '../components/Counter.svelte';
+    import Button from 'components/Button.svelte';
+    import Counter from 'components/Counter.svelte';
 
     const count = writable(100);
 
