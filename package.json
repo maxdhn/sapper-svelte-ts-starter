@@ -9,11 +9,11 @@
         "watch:tailwind": "postcss src/styles/tailwind.css -o static/global.css -w",
         "build:tailwind": "NODE_ENV=production postcss src/styles/tailwind.css -o static/global.css",
         "format": "npm-run-all -c format:*",
-        "format:eslint": "eslint --fix 'src/**/*.{ts,svelte}'",
+        "format:eslint": "eslint --fix 'src/**/*.{ts}'",
         "format:prettier": "prettier --write '**/*.{js,ts,svelte,html,json,md,css}'",
         "format:types": "tsc",
         "lint": "npm-run-all -c lint:*",
-        "lint:eslint": "eslint '**/*.{js,ts,html,svelte}'",
+        "lint:eslint": "eslint '**/*.{js,ts,html}'",
         "lint:prettier": "prettier --check '**/*.{js,ts,svelte,html,json,md,css}'",
         "lint:types": "tsc",
         "dev": "sapper dev",
@@ -27,12 +27,12 @@
         "test": "jest src --coverage"
     },
     "dependencies": {
-        "@babel/preset-typescript": "^7.8.3",
         "compression": "^1.7.1",
         "polka": "^0.5.0",
         "sirv": "^0.4.0"
     },
     "devDependencies": {
+        "@babel/preset-typescript": "^7.8.3",
         "@babel/core": "^7.8.3",
         "@babel/plugin-syntax-dynamic-import": "^7.0.0",
         "@babel/plugin-transform-runtime": "^7.0.0",

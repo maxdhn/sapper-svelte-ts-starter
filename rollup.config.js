@@ -69,7 +69,7 @@ export default {
                     { find: 'http', replacement: './src/http' },
                     { find: 'stores', replacement: './src/stores' },
                     // { find: 'utils', replacement: './src/utils' },
-                ]
+                ],
             }),
             replace({
                 'process.browser': true,
@@ -85,7 +85,7 @@ export default {
                     // console.log('warn', err);
                     // handler(err )
                     throw err;
-                }
+                },
             }),
             resolve({
                 browser: true,
@@ -137,7 +137,7 @@ export default {
                     { find: 'http', replacement: './src/http' },
                     { find: 'stores', replacement: './src/stores' },
                     // { find: 'utils', replacement: './src/utils' },
-                ]
+                ],
             }),
             replace({
                 'process.browser': false,
