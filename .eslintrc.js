@@ -1,6 +1,5 @@
 const svelteOptions = require('./svelte.config');
 module.exports = {
-
     parserOptions: {
         ecmaVersion: 2019,
         sourceType: 'module',
@@ -19,17 +18,7 @@ module.exports = {
         'prettier',
         'prettier/@typescript-eslint',
     ],
-    plugins: ['html','svelte3-sg', '@typescript-eslint'],
-    overrides: [
-        {
-            files: ['**/*.svelte'],
-            processor: 'svelte3-sg/svelte3',
-        },
-    ],
-    settings: {
-        'svelte3/preprocess': svelteOptions,
-        'svelte3/ignore-warnings': () => true
-    },
+    plugins: ['html','@typescript-eslint'],
     rules: {
         'no-unused-vars': [
             'error',
